@@ -56,7 +56,7 @@ const VendorProduct = async ({
             {formatPrice(price)}
             </h2>
           )} */}
-            {!!product.category?.slug && (
+            {/* {!!product.category?.slug && (
               <Link
                 href={paths.category._slug(product?.category?.slug).$url()}
                 passHref
@@ -68,7 +68,7 @@ const VendorProduct = async ({
                   </p>
                 </a>
               </Link>
-            )}
+            )} */}
           </div>
 
           {/* <VariantSelector product={product} selectedVariantID={selectedVariantID} /> */}

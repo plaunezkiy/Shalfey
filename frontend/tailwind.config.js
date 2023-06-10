@@ -18,7 +18,6 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/line-clamp"), // eslint-disable-line
     require("@tailwindcss/typography"), // eslint-disable-line
     require("@tailwindcss/aspect-ratio"), // eslint-disable-line
     require("tailwind-scrollbar-hide"), // eslint-disable-line

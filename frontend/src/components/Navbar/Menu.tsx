@@ -23,7 +23,7 @@ export async function Menu(props: {
   const menuRef = useRef(null);
   useClickOutside(menuRef, () => props.setShowMenu(false));
 
-  const [activeTab, setActiveTab] = useState<Tab>("Показания");
+  const [activeTab, setActiveTab] = useState<Tab>();
 
   const [loading, setLoading] = useState(false);
   const [diseases, setDiseases] = useState<Disease[]>([]);
@@ -34,11 +34,11 @@ export async function Menu(props: {
 
   useEffect(() => {
     setLoading(true);
-    const data = getMenu();
+    // const data = getMenu();
 
-    setDiseases(data.diseases);
-    setBranches(data.branches);
-    setActiveBranch(data.branches[0]);
+    // setDiseases(data.diseases);
+    // setBranches(data.branches);
+    // setActiveBranch(data.branches[0]);
     setLoading(false);
 
     // setLoading(true);
