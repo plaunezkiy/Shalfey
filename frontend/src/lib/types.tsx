@@ -42,11 +42,12 @@ export type Vendor = {
 export type Variant = {
   id: number;
   name: string;
-  description: string;
-  slug: string;
+  description: string | null;
+  slug: string | null;
+  url: string;
   image_url: string;
   quantity: number;
   price: number;
-  product: string;
+  product: string | null;
   vendor: Vendor;
 };
