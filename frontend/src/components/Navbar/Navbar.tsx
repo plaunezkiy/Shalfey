@@ -11,6 +11,7 @@ import NavIconButton from "./NavIconButton";
 import Stamp from "./Stamp";
 import UserMenu from "./UserMenu";
 import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
 
 export const Navbar = () => {
   // const paths = usePaths();
@@ -71,7 +72,7 @@ export const Navbar = () => {
               <HeartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
               {!!6 && (
                 <span
-                  className={styles["nav-icon-counter"]}
+                  className="absolute py-2 font-semibold -top-1 -right-1 bg-white border border-emerald-700 text-emerald-700 flex justify-center items-center rounded h-4;"
                   data-testid="cartCounter"
                 >
                   6
@@ -85,7 +86,7 @@ export const Navbar = () => {
               <ShoppingCartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
               {!!4 && (
                 <span
-                  className={styles["nav-icon-counter"]}
+                  className="absolute py-2 font-semibold -top-1 -right-1 bg-white border border-emerald-700 text-emerald-700 flex justify-center items-center rounded h-4;"
                   data-testid="cartCounter"
                 >
                   4
