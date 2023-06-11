@@ -3,3 +3,5 @@ node_modules/
 next-env.d.ts
 postcss.config.js
 yarn-error.log
+certbot/conf/*
+certbot/www/
