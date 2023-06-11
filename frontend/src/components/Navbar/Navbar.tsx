@@ -58,7 +58,7 @@ export const Navbar = () => {
         <div className=" h-full flex gap-8 justify-around items-center">
           <Link href={`/`}>
             <p className="text-2xl font-bold cursor-pointer bg-clip-text text-transparent bg-gradient-to-bl from-emerald-700 to-lime-700">
-              АйХерб
+              Шалфей
             </p>
           </Link>
           <BurgerButton open={showMenu} reset={() => setShowMenu(!showMenu)} />

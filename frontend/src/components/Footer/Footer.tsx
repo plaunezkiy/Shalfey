@@ -103,7 +103,7 @@ export function Footer({ className, ...rest }: FooterProps) {
       </div>
       <div className="flex items-center">
         <p className="text-sm text-main-3 flex-grow">
-          © Все Права Зарегестрированы 2023 АйХерб
+          © Все Права Зарегестрированы 2023 Шалфей
         </p>
         {/* <div className="invisible md:visible flex gap-4">
             <ChannelDropdown horizontalAlignment="right" />
