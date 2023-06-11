@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(shalfey.dvstr.net www.shalfey.dvstr.net)
+domains=(marketplace.dvstr.net www.marketplace.dvstr.net)
 rsa_key_size=4096
 data_path="./certbot"
 email="plush337@gmail.com" # Adding a valid address is strongly recommended

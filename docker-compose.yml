@@ -18,7 +18,7 @@ services:
     #   dockerfile: Dockerfile
     # volumes: 
     environment:
-      PUBLIC_SERVER_HOST: localhost
+      PUBLIC_HOST: marketplace.dvstr.net
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     links:
       - frontend
