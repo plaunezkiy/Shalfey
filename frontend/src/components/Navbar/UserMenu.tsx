@@ -1,40 +1,33 @@
-import clsx from "clsx";
+"use client";
 import Link from "next/link";
-import { HTMLAttributes } from "react";
-// import { useIntl } from "react-intl";
-
-// import { useLogout } from "@/lib/hooks/useLogout";
-// import { usePaths } from "@/lib/paths";
-
-// import { messages } from "../translations";
 import styles from "./Navbar.module.css";
 import { UserIcon } from "@heroicons/react/24/outline";
+import { useRef, useState } from "react";
+import useClickOutside from "@/lib/hooks/useClickOustide";
+import { AuthMenu } from "./AuthMenu";
 
-function UserMenu(props: { onLogout: () => void }) {
-  // const paths = usePaths();
-  // const t = useIntl();
+interface Props {}
 
-  // const onLogout = useLogout();
+function UserMenu(props: Props) {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+  useClickOutside(menuRef, () => setOpen(false));
 
   return (
-    <div className="relative group flex items-center">
+    <div className="relative">
       {/* <NavIconButton icon="user" aria-hidden="true" /> */}
-      <UserIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
-      <div className="absolute top-[100%] right-0 shadow-lg bg-white border border-emerald-700 rounded-lg flex flex-col divide-y divide-emerald-700 invisible group-hover:visible">
-        <Link href={"profile/"}>
-          <p tabIndex={0} className={styles["user-menu-item"]}>
-            Профиль
-          </p>
-        </Link>
-        <button
-          type="button"
-          onClick={props.onLogout}
-          tabIndex={-1}
-          className={styles["user-menu-item"]}
+      <UserIcon
+        onClick={() => setOpen(!open)}
+        className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer"
+      />
+      {open && (
+        <div
+          ref={menuRef}
+          className="absolute top-14 right-0 shadow-lg bg-white border border-emerald-700 rounded-lg flex flex-col divide-y divide-emerald-700 text-center"
         >
-          Выйти
-        </button>
-      </div>
+          <AuthMenu />
+        </div>
+      )}
     </div>
   );
 }

@@ -33,84 +33,86 @@ export function Footer({ className, ...rest }: FooterProps) {
   // const menu = data?.menu?.items || [];
 
   return (
-    <footer className={clsx(styles.footer, className)} {...rest}>
+    <footer className="h-44 shadow-modal" {...rest}>
       {/* <Box className={styles["footer-inner"]}> */}
-      <div className="flex mb-14 sm:mb-10">
-        <Link href={"/"}>
-          <p className="hidden sm:inline-block">
-            {/* <div className="mt-px group block h-16 w-28 relative grayscale">
+      <div className="container">
+        <div className="flex mb-14 sm:mb-10">
+          <Link href={"/"}>
+            <p className="hidden sm:inline-block">
+              {/* <div className="mt-px group block h-16 w-28 relative grayscale">
                 <Image src="/saleor.svg" alt="Saleor logo" layout="fill" />
               </div> */}
-          </p>
-        </Link>
-        <div className="grid grid-cols-2 gap-[2rem] w-full sm:w-auto sm:flex sm:flex-wrap sm:justify-end sm:ml-auto">
-          {/* {menu.map((item) => (
-              <div className="sm:ml-14" key={item?.id}>
-                {item?.url ? (
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles["menu-heading"]}
-                  >
-                    {item?.name}
-                  </a>
-                ) : (
-                  <Link
-                    href={getLinkPath(item, currentChannel.slug, currentLocale)}
-                    passHref
-                    legacyBehavior
-                  >
-                    <a href="pass" className={styles["menu-heading"]}>
-                      {item?.name}
-                    </a>
-                  </Link>
+            </p>
+          </Link>
+          <div className="grid grid-cols-2 gap-[2rem] w-full sm:w-auto sm:flex sm:flex-wrap sm:justify-end sm:ml-auto">
+            {/* {menu.map((item) => (
+            <div className="sm:ml-14" key={item?.id}>
+            {item?.url ? (
+              <a
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className={styles["menu-heading"]}
+              >
+              {item?.name}
+              </a>
+              ) : (
+                <Link
+                href={getLinkPath(item, currentChannel.slug, currentLocale)}
+                passHref
+                legacyBehavior
+                >
+                <a href="pass" className={styles["menu-heading"]}>
+                {item?.name}
+                </a>
+                </Link>
                 )}
                 <ul className={styles.menu}>
                   {item?.children?.map((sub) => (
                     <li key={sub?.id}>
                       {sub?.url ? (
                         <a
-                          href={fixMenuItemLocalhostUrl(sub.url)}
-                          target="_blank"
-                          rel="noreferrer"
-                          className={styles["menu-link"]}
-                          data-testid={`footerExternalLinks${sub?.name}`}
+                        href={fixMenuItemLocalhostUrl(sub.url)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles["menu-link"]}
+                        data-testid={`footerExternalLinks${sub?.name}`}
                         >
-                          {sub?.name}
+                        {sub?.name}
                         </a>
-                      ) : (
-                        <Link
+                        ) : (
+                          <Link
                           href={getLinkPath(sub, currentChannel.slug, currentLocale)}
                           passHref
                           legacyBehavior
-                        >
-                          <a
-                            href="pass"
-                            className={styles["menu-link"]}
-                            data-testid={`footerInternalLinks${sub?.name}`}
                           >
-                            {sub?.name}
+                          <a
+                          href="pass"
+                          className={styles["menu-link"]}
+                          data-testid={`footerInternalLinks${sub?.name}`}
+                          >
+                          {sub?.name}
                           </a>
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))} */}
+                          </Link>
+                          )}
+                          </li>
+                          ))}
+                          </ul>
+                          </div>
+                        ))} */}
+          </div>
         </div>
-      </div>
-      <div className="flex items-center">
-        <p className="text-sm text-main-3 flex-grow">
-          © Все Права Зарегестрированы 2023 Шалфей
-        </p>
-        {/* <div className="invisible md:visible flex gap-4">
+        <div className="flex items-center">
+          <p className="text-sm text-main-3 flex-grow">
+            © Все Права Зарегестрированы 2023 Шалфей
+          </p>
+          {/* <div className="invisible md:visible flex gap-4">
             <ChannelDropdown horizontalAlignment="right" />
             <LocaleDropdown horizontalAlignment="right" />
           </div> */}
+        </div>
+        {/* </Box> */}
       </div>
-      {/* </Box> */}
     </footer>
   );
 }

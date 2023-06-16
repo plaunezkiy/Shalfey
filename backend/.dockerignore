@@ -1,0 +1,8 @@
+.git/
+.gitignore
+venv/
+migrations/*
+data/
+media/*
+static/*
+db.sqlite3

@@ -1,48 +1,31 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./Navbar.module.css";
 import useClickOutside from "@/lib/hooks/useClickOustide";
-import { Disease, Branch } from "@/lib/types";
+import { Disease, Branch, Menu } from "@/lib/types";
 import * as Tabs from "@radix-ui/react-tabs";
+import { useNavMenu } from "@/lib/NavMenuContext";
 
 type Tab = {
   name: string;
   type: "category" | "herbset" | "disease";
 };
 
-const getMenu = async () => {
-  const resp = await fetch("http://127.0.0.1:8003/api/branches/");
-  const data = await resp.json();
-  return data;
-};
-
-export async function Menu(props: {
-  setShowMenu: (x: boolean) => void;
-  showMenu: boolean;
-}) {
-  const menuRef = useRef(null);
-  useClickOutside(menuRef, () => props.setShowMenu(false));
-
-  const [activeTab, setActiveTab] = useState<Tab>();
+export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
+  // const { menu } = useNavMenu();
 
   const [loading, setLoading] = useState(false);
-  const [diseases, setDiseases] = useState<Disease[]>([]);
+  const [diseases, setDiseases] = useState<Disease[]>();
   // const [activeDisease, setActiveDisease] = useState<Disease>();
   const [prevSections, setPrevSections] = useState<Disease[]>([]);
-  const [branches, setBranches] = useState<Branch[]>([]);
+  const [branches, setBranches] = useState<Branch[]>();
   const [activeBranch, setActiveBranch] = useState<Branch>();
-
+  // console.log(diseases);
   useEffect(() => {
-    setLoading(true);
-    // const data = getMenu();
-
-    // setDiseases(data.diseases);
-    // setBranches(data.branches);
-    // setActiveBranch(data.branches[0]);
-    setLoading(false);
-
-    // setLoading(true);
-    // fetch("api/diseases");
+    setDiseases(props.menu.diseases);
+    setBranches(props.menu.branches);
+    setActiveBranch(props.menu.branches?.at(0));
   }, []);
 
   const changeActiveSection = (disease: Disease) => {
@@ -64,10 +47,7 @@ export async function Menu(props: {
   return (
     <>
       {props.showMenu && (
-        <div
-          className="absolute top-10 w-[1200px] text-lg m-12 border p-4 border-black rounded-lg shadow-xl flex gap-8 z-10 bg-white"
-          ref={menuRef}
-        >
+        <div className="absolute top-10 left-0 right-0 mx-auto w-[1200px] text-lg mt-12 border p-4 border-black rounded-lg shadow-xl flex gap-8 z-20 bg-white">
           <div className="w-full grid grid-cols-4 gap-4">
             {/*  */}
             <div className="col-span-1 flex flex-col gap-4 select-none">
@@ -120,7 +100,7 @@ export async function Menu(props: {
                   {activeBranch?.categories.map((category) => (
                     <p
                       key={category.id}
-                      className={` hover:text-blue-500 cursor-pointer borderr truncate duration-150 ${
+                      className={` hover:text-emerald-500 cursor-pointer borderr truncate duration-150 hover:shadow-modal text-center py-1 px-2 hover:outline outline-1 outline-emerald-500 rounded ${
                         category.subcategories.length ? "font-semibold" : ""
                       }`}
                     >
@@ -132,7 +112,7 @@ export async function Menu(props: {
                   {activeBranch?.herbsets.map((herbset) => (
                     <p
                       key={herbset.id}
-                      className={` hover:text-blue-500 cursor-pointer borderr truncate duration-150 ${
+                      className={` hover:text-emerald-500 cursor-pointer borderr truncate duration-150 hover:shadow-lg text-center py-1 px-2 hover:outline outline-1 outline-emerald-500 rounded ${
                         herbset.subsets.length ? "font-semibold" : ""
                       }`}
                     >
@@ -159,11 +139,11 @@ export async function Menu(props: {
                     </>
                   ) : (
                     <>
-                      {diseases.map((disease) => (
+                      {diseases?.map((disease) => (
                         <p
                           key={disease.id}
                           onClick={() => changeActiveSection(disease)}
-                          className={` hover:text-blue-500 cursor-pointer borderr truncate duration-150 ${
+                          className={` hover:text-emerald-500 cursor-pointer borderr truncate duration-150 hover:shadow-lg text-center py-1 px-2 hover:outline outline-1 outline-emerald-500 rounded ${
                             disease.subcategories.length ? "font-semibold" : ""
                           }`}
                         >
@@ -195,5 +175,3 @@ export async function Menu(props: {
     </>
   );
 }
-
-export default Menu;

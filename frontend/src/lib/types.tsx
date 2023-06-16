@@ -51,3 +51,13 @@ export type Variant = {
   product: string | null;
   vendor: Vendor;
 };
+
+export type Menu = {
+  diseases?: Disease[];
+  branches?: Branch[];
+};
+
+export type CartItem = {
+  product: Variant;
+  qty: number;
+};

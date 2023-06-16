@@ -1,22 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 
 import { BurgerButton } from "./BurgerButton";
-import { Menu } from "./Menu";
-import styles from "./Navbar.module.css";
-import NavIconButton from "./NavIconButton";
-import Stamp from "./Stamp";
-import UserMenu from "./UserMenu";
-import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
 
-export const Navbar = () => {
+import { Menu } from "@/lib/types";
+import CartButton from "./buttons/Cart";
+import LikedButton from "./buttons/Liked";
+import UserMenu from "./UserMenu";
+
+export const Navbar = (props: { menu: Menu }) => {
+  const likedCounter = 0;
+  const cartCounter = 0;
   // const paths = usePaths();
 
-  const [authenticated, setAuthenticated] = useState(false);
   // const { authenticated: actuallyAuthenticated } = useUser();
 
   // const saleorApiUrl = process.env.NEXT_PUBLIC_API_URI;
@@ -24,8 +20,6 @@ export const Navbar = () => {
   // const domain = new URL(saleorApiUrl).hostname;
   // const { checkout } = useCheckout();
   // const { currentLocale, currentChannel } = useRegions();
-
-  const [showMenu, setShowMenu] = useState(false);
 
   // const checkoutParams = checkout
   //   ? new URLSearchParams({
@@ -53,7 +47,7 @@ export const Navbar = () => {
   //   setAuthenticated(actuallyAuthenticated);
   // }, [actuallyAuthenticated]);
   return (
-    <nav className="relative flex flex-col items-center shadow-lg h-16">
+    <nav className="relative flex flex-col items-center shadow-modal h-16">
       <div className="px-8 w-full xl:w-[1250px] h-full flex ">
         {/* right of navbar */}
         <div className=" h-full flex gap-8 justify-around items-center">
@@ -62,52 +56,16 @@ export const Navbar = () => {
               Шалфей
             </p>
           </Link>
-          <BurgerButton open={showMenu} reset={() => setShowMenu(!showMenu)} />
+          <BurgerButton menu={props.menu} />
         </div>
         {/* left of navbar */}
         <div className="flex ml-auto items-center gap-4">
-          <Link href={`checkout/`} className="">
-            {/* <NavIconButton icon="bag" />{" "} */}
-            <div className="relative">
-              <HeartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
-              {!!6 && (
-                <span
-                  className="absolute py-2 font-semibold -top-1 -right-1 bg-white border border-emerald-700 text-emerald-700 flex justify-center items-center rounded h-4;"
-                  data-testid="cartCounter"
-                >
-                  6
-                </span>
-              )}
-            </div>
-          </Link>
-          <Link href={`checkout/`} className="">
-            {/* <NavIconButton icon="bag" />{" "} */}
-            <div className="relative">
-              <ShoppingCartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
-              {!!4 && (
-                <span
-                  className="absolute py-2 font-semibold -top-1 -right-1 bg-white border border-emerald-700 text-emerald-700 flex justify-center items-center rounded h-4;"
-                  data-testid="cartCounter"
-                >
-                  4
-                </span>
-              )}
-            </div>
-          </Link>
-          {!authenticated ? (
-            // <Link >
-            <p
-              className="text-lg font-medium text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer"
-              onClick={() => setAuthenticated(true)}
-            >
-              Войти
-            </p>
-          ) : (
-            // </Link>
-            <UserMenu onLogout={() => setAuthenticated(false)} />
-          )}
+          <LikedButton />
+          <CartButton />
+          <UserMenu />
         </div>
       </div>
+      {/* nav menu */}
     </nav>
   );
 };
