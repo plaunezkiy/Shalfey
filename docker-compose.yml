@@ -28,8 +28,9 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile.production
-    environment:
-      API_URL: http://127.0.0.1:8000/api/
+      target: runner
+    depends_on:
+      - nginx
     # ports:
     #   - 3000:3000
     # volumes:
@@ -63,7 +64,7 @@ services:
       - static_volume:/shalfey/static/
       - media_volume:/shalfey/media/
     depends_on:
-      - frontend
+      - backend
       - certbot
 
 volumes:
