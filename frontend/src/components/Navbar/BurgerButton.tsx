@@ -34,7 +34,7 @@ export function BurgerButton(props: { menu: Menu }) {
       </div> */}
       <button
         onClick={() => setShowMenu(!showMenu)}
-        className="flex items-center gap-1 px-2 text-emerald-700 border-2 border-emerald-700 rounded group hover:bg-emerald-700 hover:text-white duration-300"
+        className="flex items-center gap-1 px-2 text-emerald-700 border border-emerald-700 rounded group hover:bg-emerald-700 hover:text-white duration-300"
       >
         <div className="flex flex-col h-10 w-10 justify-center items-center">
           <div

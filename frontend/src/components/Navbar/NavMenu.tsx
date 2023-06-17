@@ -13,6 +13,9 @@ type Tab = {
 };
 
 export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
+  const tabActiveStyle =
+    "rounded py-2 px-4 border border-emerald-700 shadow hover:text-white hover:bg-emerald-700 data-[state=active]:text-white data-[state=active]:bg-emerald-700 data-[state=active]:shadow-lg";
+  const tabContent = "pt-2 grid grid-cols-3 text-lg gap-4 duration-150;";
   // const { menu } = useNavMenu();
 
   const [loading, setLoading] = useState(false);
@@ -73,22 +76,13 @@ export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
                   className="justify-center flex gap-8 pb-2 border-b"
                   aria-label="Manage your account"
                 >
-                  <Tabs.Trigger
-                    className={styles["tab-active"]}
-                    value="category"
-                  >
+                  <Tabs.Trigger className={tabActiveStyle} value="category">
                     Категории
                   </Tabs.Trigger>
-                  <Tabs.Trigger
-                    className={styles["tab-active"]}
-                    value="herbset"
-                  >
+                  <Tabs.Trigger className={tabActiveStyle} value="herbset">
                     Сборы Трав
                   </Tabs.Trigger>
-                  <Tabs.Trigger
-                    className={styles["tab-active"]}
-                    value="disease"
-                  >
+                  <Tabs.Trigger className={tabActiveStyle} value="disease">
                     Заболевания
                   </Tabs.Trigger>
                 </Tabs.List>
@@ -108,7 +102,7 @@ export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
                     </p>
                   ))}
                 </Tabs.Content>
-                <Tabs.Content className={styles["tab-content"]} value="herbset">
+                <Tabs.Content className={tabContent} value="herbset">
                   {activeBranch?.herbsets.map((herbset) => (
                     <p
                       key={herbset.id}
@@ -120,7 +114,7 @@ export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
                     </p>
                   ))}
                 </Tabs.Content>
-                <Tabs.Content className={styles["tab-content"]} value="disease">
+                <Tabs.Content className={tabContent} value="disease">
                   {prevSections.length ? (
                     <>
                       {prevSections[
