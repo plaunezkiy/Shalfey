@@ -1,4 +1,8 @@
-version: "3"
+version: "3.4"
+
+volumes:
+  static_volume:
+  media_volume:
 
 services:
   # db:
@@ -28,7 +32,6 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile.production
-      target: runner
     depends_on:
       - nginx
     # ports:
@@ -66,7 +69,3 @@ services:
     depends_on:
       - backend
       - certbot
-
-volumes:
-  static_volume:
-  media_volume:

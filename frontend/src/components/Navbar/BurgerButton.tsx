@@ -5,7 +5,6 @@ import { Menu } from "@/lib/types";
 import { NavMenu } from "./NavMenu";
 import useClickOutside from "@/lib/hooks/useClickOustide";
 import { useNavMenu } from "@/lib/NavMenuContext";
-import { getMenu } from "@/lib/getMenu";
 
 export function BurgerButton(props: { menu: Menu }) {
   const [showMenu, setShowMenu] = useState(false);

@@ -44,7 +44,7 @@ export const ProductCard = (props: Props) => {
             className="group-hover/provider-card:scale-105 duration-300 h-54"
             // onClick={() => setExpandedImage(media)}
             loader={({ src, width, quality }) => {
-              return "http://localhost:8000/media/" + src;
+              return "https://marketplace.dvstr.net/api/media/" + src;
             }}
             src={props.variant.image_url}
             alt=""

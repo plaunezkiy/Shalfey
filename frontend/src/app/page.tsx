@@ -5,17 +5,7 @@ import { Variant } from "@/lib/types";
 
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { ProductCard } from "@/components/Product/ProductCard";
-
-const getVariants = async () => {
-  const url = process.env.API_URL + "variants/";
-
-  const resp = await fetch(url, {
-    method: "GET",
-  });
-  const variants = await resp.json();
-
-  return variants;
-};
+import { getVariants } from "@/lib/getVariants";
 
 // const variants: Variant[] = [
 //   {
