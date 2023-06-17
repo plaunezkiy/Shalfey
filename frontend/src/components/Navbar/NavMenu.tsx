@@ -87,10 +87,7 @@ export function NavMenu(props: { menu: Menu; showMenu: boolean }) {
                   </Tabs.Trigger>
                 </Tabs.List>
 
-                <Tabs.Content
-                  className={styles["tab-content"]}
-                  value="category"
-                >
+                <Tabs.Content className={tabContent} value="category">
                   {activeBranch?.categories.map((category) => (
                     <p
                       key={category.id}
