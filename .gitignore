@@ -9,6 +9,6 @@ yarn-error.log
 certbot/conf/*
 certbot/www/
 
-media/
+# media/
 static/
 venv/
