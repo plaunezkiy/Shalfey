@@ -2,6 +2,7 @@
 import Image from "next/image";
 import QtyButton from "@/components/Buttons/QtyButton";
 import { useAppSelector } from "@/lib/store/store";
+import { MEDIA_URL } from "@/lib/const";
 
 const LikedPage = () => {
   const likedItems = useAppSelector((state) => state.liked.likedItems);
@@ -55,7 +56,7 @@ const LikedPage = () => {
                           className="h-16 w-16 rounded"
                           // onClick={() => setExpandedImage(media)}
                           loader={({ src, width, quality }) => {
-                            return "http://localhost:8000/media/" + src;
+                            return MEDIA_URL + src;
                           }}
                           src={item.image_url}
                           alt=""
