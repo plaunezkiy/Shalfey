@@ -14,6 +14,7 @@ import {
   // totalLikedItemSelector,
   variantLikedSelector,
 } from "@/lib/store/features/likedSlice";
+import { MEDIA_URL } from "@/lib/const";
 
 interface Props {
   variant: Variant;
@@ -44,7 +45,7 @@ export const ProductCard = (props: Props) => {
             className="group-hover/provider-card:scale-105 duration-300 h-54"
             // onClick={() => setExpandedImage(media)}
             loader={({ src, width, quality }) => {
-              return "https://marketplace.dvstr.net/api/media/" + src;
+              return MEDIA_URL + src;
             }}
             src={props.variant.image_url}
             alt=""

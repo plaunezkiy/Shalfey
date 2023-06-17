@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/store/store";
 import Image from "next/image";
 import CheckoutForm from "./CheckoutForm";
 import QtyButton from "@/components/Buttons/QtyButton";
+import { MEDIA_URL } from "@/lib/const";
 
 const CheckoutPage = () => {
   const cartItems = useAppSelector((state) => state.cart.cartItems);
@@ -60,7 +61,7 @@ const CheckoutPage = () => {
                           className="h-16 w-16 rounded"
                           // onClick={() => setExpandedImage(media)}
                           loader={({ src, width, quality }) => {
-                            return "http://localhost:8000/media/" + src;
+                            return MEDIA_URL + src;
                           }}
                           src={item.product.image_url}
                           alt=""
