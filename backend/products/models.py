@@ -4,6 +4,7 @@ from users.models import Vendor
 # TODO: Придумать как проплаченные товары поднимать при поиске
 # https://stackoverflow.com/questions/47182481/dynamic-filter-in-django
 # for dynamic filtering - useful for creating collections (Новинки, по акции)
+# Алгоритм оценки карточки и продавца (сток, цена, отзывы, буст и тд.)
 
 
 class Disease(models.Model):

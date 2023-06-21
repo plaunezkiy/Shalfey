@@ -6,14 +6,19 @@ export interface LikedState {
   likedItems: Variant[];
 }
 
+const sliceName = "liked";
+
 const initialState: LikedState = {
   likedItems: [],
 };
 
 export const likedSlice = createSlice({
-  name: "liked",
+  name: sliceName,
   initialState,
   reducers: {
+    setLiked: (state, action: PayloadAction<Variant[]>) => {
+      state.likedItems = action.payload;
+    },
     addToLiked: (state, action: PayloadAction<Variant>) => {
       const item = state.likedItems.find((el) => el.id === action.payload.id);
       if (item) {
@@ -23,6 +28,7 @@ export const likedSlice = createSlice({
       } else {
         state.likedItems.push(action.payload);
       }
+      localStorage.setItem(sliceName, JSON.stringify(state.likedItems));
     },
   },
 });
@@ -38,5 +44,5 @@ export const variantLikedSelector = createSelector(
   (cartItems, productId) => !!cartItems.find((el) => el.id === productId)
 );
 
-export const { addToLiked } = likedSlice.actions;
+export const { setLiked, addToLiked } = likedSlice.actions;
 export default likedSlice.reducer;

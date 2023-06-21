@@ -7,6 +7,8 @@ import { Menu } from "@/lib/types";
 import CartButton from "./buttons/Cart";
 import LikedButton from "./buttons/Liked";
 import UserMenu from "./UserMenu";
+import { useAppDispatch } from "@/lib/store/store";
+// import { fetchUser } from "@/lib/store/features/userSlice";
 
 export const Navbar = (props: { menu: Menu }) => {
   return (
@@ -14,7 +16,7 @@ export const Navbar = (props: { menu: Menu }) => {
       <div className="px-8 w-full xl:w-[1250px] h-full flex ">
         {/* right of navbar */}
         <div className=" h-full flex gap-8 justify-around items-center">
-          <Link href={`/`}>
+          <Link href={`/home`}>
             <p className="text-2xl font-bold cursor-pointer bg-clip-text text-transparent bg-gradient-to-bl from-emerald-700 to-lime-700">
               Шалфей
             </p>

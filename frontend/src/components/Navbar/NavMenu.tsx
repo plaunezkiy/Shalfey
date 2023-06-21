@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 import useClickOutside from "@/lib/hooks/useClickOustide";
 import { Disease, Branch, Menu } from "@/lib/types";
 import * as Tabs from "@radix-ui/react-tabs";
-import { useNavMenu } from "@/lib/NavMenuContext";
+// import { useNavMenu } from "@/lib/NavMenuContext";
 
 type Tab = {
   name: string;

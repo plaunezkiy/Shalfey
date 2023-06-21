@@ -23,7 +23,7 @@ const AddToCartBtn = (props: Props) => {
     return (
       <button
         onClick={() => dispatch(increment(props.variant))}
-        className="w-full py-2 text-lg bg-blue-500 text-white hover:bg-white hover:text-blue-500 border border-blue-500 rounded-lg"
+        className="w-full py-2 text-lg bg-blue-500 text-white hover:bg-white hover:text-blue-500 border border-blue-500 rounded-lg shadow hover:shadow-lg duration-150"
       >
         В корзину
       </button>

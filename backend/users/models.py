@@ -2,23 +2,21 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-# class User(models.Model):
-#     id = models.TextField(primary_key=True)
-#     role = models.TextField()  # This field type is a guess.
-#     username = models.TextField(unique=True)
-#     email = models.CharField(unique=True, max_length=255)
-#     password_hash = models.TextField()
-
-#     class Meta:
-#         managed = False
-        # db_table = 'User'
 class ShopUser(AbstractUser):
     class UserRoles(models.TextChoices):
-        moderator = 'moderator', 'Moderator'
-        vendor    = 'vendor',    'Vendor'
-        customer  = 'customer',  'Customer'
-
+        moderator = 'moderator', 'Модератор'
+        vendor    = 'vendor',    'Продавец'
+        customer  = 'customer',  'Покупатель'
+    username = None
+    email = models.EmailField("Email Field", unique=True)
     role = models.CharField(max_length=15, choices=UserRoles.choices, default=UserRoles.customer)
+    basket = models.ForeignKey('orders.Basket', on_delete=models.SET_NULL, null=True)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
+
+    def __str__(self):
+        return self.email
+    
 
 
 class Vendor(models.Model):

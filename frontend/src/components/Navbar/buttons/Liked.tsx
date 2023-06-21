@@ -1,14 +1,23 @@
 "use client";
-import { totalLikedItemSelector } from "@/lib/store/features/likedSlice";
-import { useAppSelector } from "@/lib/store/store";
+import {
+  setLiked,
+  totalLikedItemSelector,
+} from "@/lib/store/features/likedSlice";
+import loadFromLocalstorage from "@/lib/store/loadFromLocalstorage";
+import { useAppDispatch, useAppSelector } from "@/lib/store/store";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const LikedButton = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setLiked(loadFromLocalstorage("liked", "[]")));
+  }, []);
   const likedCounter = useAppSelector((state) => totalLikedItemSelector(state));
 
   return (
-    <Link href={`liked/`} className="">
+    <Link href={`/liked/`} className="">
       {/* <NavIconButton icon="bag" />{" "} */}
       <div className="relative">
         <HeartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />

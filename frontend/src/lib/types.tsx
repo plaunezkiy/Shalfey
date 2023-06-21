@@ -39,6 +39,10 @@ export type Vendor = {
   owner: number;
 };
 
+export type Product = {
+
+}
+
 export type Variant = {
   id: number;
   name: string;
@@ -48,7 +52,7 @@ export type Variant = {
   image_url: string;
   quantity: number;
   price: number;
-  product: string | null;
+  product: Product | null;
   vendor: Vendor;
 };
 

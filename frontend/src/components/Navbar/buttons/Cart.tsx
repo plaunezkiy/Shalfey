@@ -1,14 +1,20 @@
 "use client";
-import { totalCartItemSelector } from "@/lib/store/features/cartSlice";
-import { useAppSelector } from "@/lib/store/store";
+import { setCart, totalCartItemSelector } from "@/lib/store/features/cartSlice";
+import loadFromLocalstorage from "@/lib/store/loadFromLocalstorage";
+import { useAppDispatch, useAppSelector } from "@/lib/store/store";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const CartButton = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(setCart(loadFromLocalstorage("cart", "[]")));
+  }, []);
   const cartCounter = useAppSelector((state) => totalCartItemSelector(state));
 
   return (
-    <Link href={`checkout/`} className="">
+    <Link href={`/checkout/`} className="">
       {/* <NavIconButton icon="bag" />{" "} */}
       <div className="relative">
         <ShoppingCartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />

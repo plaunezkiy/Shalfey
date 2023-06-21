@@ -4,11 +4,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Menu } from "@/lib/types";
 import { NavMenu } from "./NavMenu";
 import useClickOutside from "@/lib/hooks/useClickOustide";
-import { useNavMenu } from "@/lib/NavMenuContext";
 
 export function BurgerButton(props: { menu: Menu }) {
   const [showMenu, setShowMenu] = useState(false);
-  const { menu, setMenu } = useNavMenu();
   const menuRef = useRef(null);
   useClickOutside(menuRef, () => setShowMenu(false));
   const genericHamburgerLine = `h-[2.5px] w-6 my-[2px] rounded-full transition ease transform duration-300 bg-emerald-700 group-hover:bg-white`;
@@ -16,7 +14,7 @@ export function BurgerButton(props: { menu: Menu }) {
   useEffect(() => {
     // console.log(props.menu);
 
-    setMenu(props.menu);
+    // setMenu(props.menu);
   }, []);
 
   return (

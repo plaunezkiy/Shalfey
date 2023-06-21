@@ -15,6 +15,7 @@ import {
   variantLikedSelector,
 } from "@/lib/store/features/likedSlice";
 import { MEDIA_URL } from "@/lib/const";
+import AddToLikedBtn from "../Buttons/AddToLikedBtn";
 
 interface Props {
   variant: Variant;
@@ -31,16 +32,9 @@ export const ProductCard = (props: Props) => {
       <div className="relative text-center flex flex-col items-center gap-2 h-full">
         {/*  */}
         <div className="p-2">
-          <button
-            onClick={() => dispatch(addToLiked(props.variant))}
-            className="absolute right-1 top-1 z-10 p-1 border border-1 border-red-400 rounded-lg text-red-400 hover:text-white bg-white hover:bg-red-400 shadow  duration-300"
-          >
-            {liked ? (
-              <HeartSolidIcon className="w-8" />
-            ) : (
-              <HeartOutlineIcon className="w-8" />
-            )}
-          </button>
+          <div className="absolute right-1 top-1 z-10 ">
+            <AddToLikedBtn variant={props.variant} />
+          </div>
           <Image
             className="group-hover/provider-card:scale-105 duration-300 h-54"
             // onClick={() => setExpandedImage(media)}

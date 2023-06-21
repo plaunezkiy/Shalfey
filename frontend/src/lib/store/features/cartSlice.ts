@@ -6,14 +6,18 @@ export interface CartState {
   cartItems: CartItem[];
 }
 
+const sliceName = "cart";
+
 const initialState: CartState = {
   cartItems: [],
 };
-
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setCart: (state, action: PayloadAction<CartItem[]>) => {
+      state.cartItems = action.payload;
+    },
     increment: (state, action: PayloadAction<Variant>) => {
       const item = state.cartItems.find(
         (el) => el.product.id === action.payload.id
@@ -25,6 +29,7 @@ export const cartSlice = createSlice({
           qty: 1,
         });
       }
+      localStorage.setItem(sliceName, JSON.stringify(state.cartItems));
     },
     decrement: (state, action: PayloadAction<Variant>) => {
       const item = state.cartItems.find(
@@ -38,6 +43,7 @@ export const cartSlice = createSlice({
           );
         }
       }
+      localStorage.setItem(sliceName, JSON.stringify(state.cartItems));
     },
   },
 });
@@ -60,5 +66,5 @@ export const productQtyInCartSelector = createSelector(
     cartItems.find((el) => el.product.id === productId)?.qty
 );
 
-export const { increment, decrement } = cartSlice.actions;
+export const { setCart, increment, decrement } = cartSlice.actions;
 export default cartSlice.reducer;
