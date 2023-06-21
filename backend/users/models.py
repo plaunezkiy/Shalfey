@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from users.managers import CustomUserManager
 
 
 class ShopUser(AbstractUser):
@@ -13,6 +14,8 @@ class ShopUser(AbstractUser):
     basket = models.ForeignKey('orders.Basket', on_delete=models.SET_NULL, null=True)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    objects = CustomUserManager()
 
     def __str__(self):
         return self.email
