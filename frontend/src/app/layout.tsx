@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { getMenu } from "@/lib/getMenu";
 import StoreProvider from "@/lib/store/StoreProvider";
 import AuthProvider from "@/lib/auth/AuthProvider";
+import { Toaster } from "@/components/common/Toaster";
 
 export const metadata = {
   title: "Шалфей",
@@ -31,6 +32,7 @@ export default async function RootLayout({
               </div>
               <Footer />
             </div>
+            <Toaster />
           </StoreProvider>
         </AuthProvider>
       </body>

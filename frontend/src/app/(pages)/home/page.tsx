@@ -21,8 +21,8 @@ const HomePage = async () => {
             {/*  */}
             {["Хиты продаж", "Новинки", "Акции", "Товары недели"].map(
               (rubric, index) => (
-                <div className="text-xl" key={index}>
-                  <div className="flex justify-between items-center mb-2">
+                <div className="" key={index}>
+                  <div className="text-xl flex justify-between items-center mb-2">
                     <p className="text-2xl hover:text-blue-500 cursor-pointer duration-150 font-semibold">
                       {rubric}
                     </p>

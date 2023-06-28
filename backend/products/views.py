@@ -23,7 +23,7 @@ class BranchViewSet(viewsets.ViewSet):
 
 
 class VariantViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = ProductVariant.objects.all()
+    queryset = ProductVariant.objects.all().exclude(name__exact='')
     serializer_class = VariantSerializer
     lookup_field = 'slug'
 

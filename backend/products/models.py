@@ -65,7 +65,7 @@ class ProductVariant(models.Model):
     description = models.TextField(blank=True, null=True)
     slug = models.SlugField(allow_unicode=True, null=True, default="")
     url = models.URLField(blank=True, null=True)
-    image = models.ImageField(upload_to='media/', blank=True, null=True)
+    image = models.ImageField(upload_to='variants/', blank=True, null=True)
     quantity = models.IntegerField(default=0)
     price = models.FloatField(null=True)
     product = models.ForeignKey(Product, blank=True, null=True, on_delete=models.SET_NULL, related_name='variants')

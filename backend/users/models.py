@@ -11,7 +11,7 @@ class ShopUser(AbstractUser):
     # username = None
     # email = models.EmailField("Email Field", unique=True)
     role = models.CharField(max_length=15, choices=UserRoles.choices, default=UserRoles.customer)
-    basket = models.ForeignKey('orders.Basket', on_delete=models.SET_NULL, null=True)
+    # basket = models.ForeignKey('orders.Basket', on_delete=models.SET_NULL, null=True)
     # USERNAME_FIELD = "email"
     # REQUIRED_FIELDS = []
 
@@ -28,6 +28,7 @@ class Vendor(models.Model):
     slug = models.SlugField(allow_unicode=True, null=False, default="")
     owner = models.ForeignKey(ShopUser, blank=True, null=True, on_delete=models.CASCADE, related_name='vendors')
     website = models.URLField(blank=True, null=True)
+    image = models.ImageField(upload_to='vendors/', blank=True, null=True)
     # userid = models.ForeignKey(User, models.DO_NOTHING, db_column='userId')  # Field name made lowercase.
 
     def __str__(self):

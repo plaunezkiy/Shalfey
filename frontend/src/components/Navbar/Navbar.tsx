@@ -6,7 +6,7 @@ import { BurgerButton } from "./BurgerButton";
 import { Menu } from "@/lib/types";
 import CartButton from "./buttons/Cart";
 import LikedButton from "./buttons/Liked";
-import UserMenu from "./UserMenu";
+import UserAccountNavMenu from "./UserAccountNavMenu";
 import { useAppDispatch } from "@/lib/store/store";
 // import { fetchUser } from "@/lib/store/features/userSlice";
 
@@ -27,7 +27,7 @@ export const Navbar = (props: { menu: Menu }) => {
         <div className="flex ml-auto items-center gap-4">
           <LikedButton />
           <CartButton />
-          <UserMenu />
+          <UserAccountNavMenu />
         </div>
       </div>
       {/* nav menu */}

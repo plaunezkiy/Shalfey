@@ -1,19 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  StarIcon,
-  HeartIcon as HeartSolidIcon,
-} from "@heroicons/react/24/solid";
-import { HeartIcon as HeartOutlineIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 import { Variant } from "@/lib/types";
 import AddToCartBtn from "../Buttons/AddToCartBtn";
-import { useAppDispatch, useAppSelector } from "@/lib/store/store";
-import {
-  addToLiked,
-  // totalLikedItemSelector,
-  variantLikedSelector,
-} from "@/lib/store/features/likedSlice";
 import { MEDIA_URL } from "@/lib/const";
 import AddToLikedBtn from "../Buttons/AddToLikedBtn";
 
@@ -22,51 +12,43 @@ interface Props {
 }
 
 export const ProductCard = (props: Props) => {
-  const liked = useAppSelector((state) =>
-    variantLikedSelector(state, props.variant.id)
-  );
-  const dispatch = useAppDispatch();
-
   return (
-    <div className="w-[250px] card border shadow hover:shadow-modal rounded-lg p-2 duration-300 group/provider-card cursor-pointer">
+    <div className="w-56 card border shadow hover:shadow-modal rounded-lg p-2 duration-300 group/provider-card cursor-pointer">
       <div className="relative text-center flex flex-col items-center gap-2 h-full">
         {/*  */}
-        <div className="p-2">
+        <div className="w-full h-36 relative p-2">
           <div className="absolute right-1 top-1 z-10 ">
             <AddToLikedBtn variant={props.variant} />
           </div>
+
           <Image
-            className="group-hover/provider-card:scale-105 duration-300 h-54"
-            // onClick={() => setExpandedImage(media)}
+            className="group-hover/provider-card:scale-105 duration-300"
             loader={({ src, width, quality }) => {
               return MEDIA_URL + src;
             }}
             src={props.variant.image_url}
             alt=""
-            // layout="fill"
-            // objectFit="cover"
-            // className="w-20 h-20"
-            width={150}
-            height={100}
-            quality={80}
+            style={{ objectFit: "scale-down" }}
+            fill
+            // className="w-full w-20 h-20"
           />
         </div>
         {/*  */}
-        <p className="border-t w-full flex flex-grow text-lg items-center justify-center hover:text-blue-500 hover:underline">
+        <p className="border-t w-full flex flex-grow items-center justify-center hover:text-blue-500 hover:underline">
           <Link
-            href={`vendors/${props.variant.vendor.slug}/products/${props.variant.slug}`}
+            href={`/vendors/${props.variant.vendor.slug}/products/${props.variant.slug}`}
           >
             {props.variant.name}
           </Link>
         </p>
-        <p className="border-t w-full text-center text-lg items-center hover:text-blue-500 hover:underline">
-          <Link href={`vendors/` + props.variant.vendor.slug}>
+        <p className="border-t w-full text-center items-center hover:text-blue-500 hover:underline">
+          <Link href={`/vendors/` + props.variant.vendor.slug}>
             {props.variant.vendor.name}
           </Link>
         </p>
 
         <div className="border-t w-full flex justify-around py-2">
-          <p className="text-lg font-medium after:content-['руб.']">
+          <p className="font-medium after:content-['руб.']">
             {props.variant.price}
           </p>
           <div className="flex">

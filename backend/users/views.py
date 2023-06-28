@@ -15,6 +15,9 @@ class UserView(viewsets.GenericViewSet):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = RegistrationSerializer
 
+    def get_queryset(self):
+        return None
+
     def list(self, request):
         user = request.user
         data = UserSerializer(user).data
@@ -48,7 +51,7 @@ class VendorViewSet(viewsets.ReadOnlyModelViewSet):
     @action(detail=True)
     def products(self, request, slug):
         vendor = get_object_or_404(Vendor, slug=slug)
-        products = vendor.products.all()
+        products = vendor.products.all().exclude(name__exact='')
         serializer = VariantSerializer(products, many=True)
         return Response(data=serializer.data)
 

@@ -1,9 +1,11 @@
 "use client";
 
 export const client = async (endpoint, { body, ...customConfig } = {}) => {
+  const token = JSON.parse(localStorage.getItem("access") || '""');
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${JSON.parse(localStorage.getItem("access") || "")}`,
+    // conditional if the token is present
+    ...(token && { Authorization: `Bearer ${token}` }),
   };
   const config = {
     method: body ? "POST" : "GET",
@@ -20,6 +22,7 @@ export const client = async (endpoint, { body, ...customConfig } = {}) => {
   try {
     return fetch(endpoint, config);
   } catch (err) {
+    localStorage.removeItem("access");
     return Promise.reject(err.message ? err.message : data);
   }
 };

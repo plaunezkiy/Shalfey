@@ -34,14 +34,13 @@ export type Vendor = {
   id: number;
   name: string;
   description: string;
+  image_url: string;
   slug: string;
   website: string;
   owner: number;
 };
 
-export type Product = {
-
-}
+export type Product = {};
 
 export type Variant = {
   id: number;
@@ -52,7 +51,7 @@ export type Variant = {
   image_url: string;
   quantity: number;
   price: number;
-  product: Product | null;
+  product?: Product | null;
   vendor: Vendor;
 };
 
