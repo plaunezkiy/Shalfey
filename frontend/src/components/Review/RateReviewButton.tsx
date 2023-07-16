@@ -27,11 +27,11 @@ export const RateReviewButton = () => {
           <div className="flex gap-8 justify-center">
             <HandThumbUpIcon
               onClick={() => setReviewed(true)}
-              className="w-10 hover:bg-green-600 p-1 border border-green-600 text-green-600 hover:text-white rounded-full shadow duration-100"
+              className="w-10 hover:bg-primary-main p-1 border border-primary-main text-primary-main hover:text-white rounded-full shadow duration-100"
             />
             <HandThumbDownIcon
               onClick={() => setReviewed(true)}
-              className="w-10 hover:bg-red-400 p-1 border border-red-400 text-red-400 hover:text-white rounded-full shadow duration-100"
+              className="w-10 hover:bg-primary-red p-1 border border-primary-red text-primary-red hover:text-white rounded-full shadow duration-100"
             />
           </div>
         </>

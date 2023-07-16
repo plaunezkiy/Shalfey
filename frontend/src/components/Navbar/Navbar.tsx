@@ -1,26 +1,21 @@
-import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import { BurgerButton } from "./BurgerButton";
-
 import { Menu } from "@/lib/types";
 import CartButton from "./buttons/Cart";
 import LikedButton from "./buttons/Liked";
 import UserAccountNavMenu from "./UserAccountNavMenu";
-import { useAppDispatch } from "@/lib/store/store";
+
+import NavbarBrand from "./NavbarBrand";
 // import { fetchUser } from "@/lib/store/features/userSlice";
 
 export const Navbar = (props: { menu: Menu }) => {
   return (
-    <nav className="relative flex flex-col items-center shadow-modal h-16">
+    <nav className="relative flex flex-col items-center shadow-modal h-20 bg-primary-white/80">
       <div className="px-8 w-full xl:w-[1250px] h-full flex ">
         {/* right of navbar */}
         <div className=" h-full flex gap-8 justify-around items-center">
-          <Link href={`/home`}>
-            <p className="text-2xl font-bold cursor-pointer bg-clip-text text-transparent bg-gradient-to-bl from-emerald-700 to-lime-700">
-              Шалфей
-            </p>
-          </Link>
+          <NavbarBrand />
           <BurgerButton menu={props.menu} />
         </div>
         {/* left of navbar */}

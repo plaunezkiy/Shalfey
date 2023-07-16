@@ -7,7 +7,26 @@ module.exports = {
   ],
   mode: "jit",
   theme: {
+    fontFamily: {
+      sans: ["var(--font-hagrid)"],
+    },
     extend: {
+      colors: {
+        primary: {
+          main: "#007b39",
+          accent: "#679436",
+          white: "#fffcf2",
+          dark: "#05668D",
+          red: "#f15025",
+        },
+        secondary: {
+          dark: "#132A13",
+          dimmed: "#31572C",
+          medium: "#4F772D",
+          semi: "#90A955",
+          light: "#ECF39E",
+        },
+      },
       keyframes: {
         pingOnce: {
           "50%": { transform: "scale(1.3)" },

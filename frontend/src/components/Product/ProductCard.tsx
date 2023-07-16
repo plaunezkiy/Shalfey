@@ -13,7 +13,10 @@ interface Props {
 
 export const ProductCard = (props: Props) => {
   return (
-    <div className="w-56 card border shadow hover:shadow-modal rounded-lg p-2 duration-300 group/provider-card cursor-pointer">
+    <Link
+      href={`/vendors/${props.variant.vendor.slug}/products/${props.variant.slug}`}
+      className="w-56 card border border-primary-dark bg-primary-white shadow hover:shadow-modal rounded-lg p-2 duration-300 group/provider-card cursor-pointer"
+    >
       <div className="relative text-center flex flex-col items-center gap-2 h-full">
         {/*  */}
         <div className="w-full h-36 relative p-2">
@@ -34,20 +37,20 @@ export const ProductCard = (props: Props) => {
           />
         </div>
         {/*  */}
-        <p className="border-t w-full flex flex-grow items-center justify-center hover:text-blue-500 hover:underline">
+        <p className="border-t border-primary-dark w-full flex flex-grow items-center justify-center hover:text-primary-dark hover:underline">
           <Link
             href={`/vendors/${props.variant.vendor.slug}/products/${props.variant.slug}`}
           >
             {props.variant.name}
           </Link>
         </p>
-        <p className="border-t w-full text-center items-center hover:text-blue-500 hover:underline">
+        <p className="border-t pt-2 border-primary-dark w-full text-center items-center hover:text-primary-dark hover:underline">
           <Link href={`/vendors/` + props.variant.vendor.slug}>
             {props.variant.vendor.name}
           </Link>
         </p>
 
-        <div className="border-t w-full flex justify-around py-2">
+        <div className="border-t border-primary-dark w-full flex justify-around py-2">
           <p className="font-medium after:content-['руб.']">
             {props.variant.price}
           </p>
@@ -71,6 +74,6 @@ export const ProductCard = (props: Props) => {
           В корзину
         </p> */}
       </div>
-    </div>
+    </Link>
   );
 };

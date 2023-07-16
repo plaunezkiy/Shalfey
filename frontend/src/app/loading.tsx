@@ -1,3 +1,5 @@
+import Spinner from "@/components/Loaders/Spinner";
+
 const LoadingScreen = () => {
   return (
     <div className="w-full flex flex-col">
@@ -7,4 +9,8 @@ const LoadingScreen = () => {
   );
 };
 
-export default LoadingScreen;
+export default () => (
+  <div className="flex flex-grow items-center justify-center">
+    <Spinner />;
+  </div>
+);

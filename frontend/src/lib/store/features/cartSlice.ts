@@ -1,3 +1,4 @@
+"use client"
 import { PayloadAction, createSelector, createSlice } from "@reduxjs/toolkit";
 import { CartItem, Variant } from "@/lib/types";
 import { RootState } from "../store";

@@ -1,7 +1,7 @@
 "use client";
 
 export const client = async (endpoint, { body, ...customConfig } = {}) => {
-  const token = JSON.parse(localStorage.getItem("access") || '""');
+  const token = JSON.parse(localStorage.getItem("access") || 'null');
   const headers = {
     "Content-Type": "application/json",
     // conditional if the token is present

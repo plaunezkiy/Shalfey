@@ -35,7 +35,9 @@ const VendorMenu = () => {
       <DropdownMenuItem asChild>
         <Link href="/account/profile" className="flex gap-2 items-center">
           Заказы
-          <span className="text-xs px-1 rounded bg-blue-500 text-white border border-black">+3</span>
+          <span className="text-xs px-1 rounded bg-blue-500 text-white border border-black shadow">
+            +3
+          </span>
         </Link>
       </DropdownMenuItem>
 

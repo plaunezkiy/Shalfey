@@ -8,6 +8,7 @@ import attemptLogout from "./logout";
 import verifySession from "./verify";
 import getUser from "./getUser";
 import attemptSignup from "./signup";
+import { VendorOwner } from "../types";
 
 export type Credentials = {
   email: string;
@@ -18,7 +19,7 @@ export interface AuthContextType {
   register: (credentials: Credentials) => void;
   login: (credentials: Credentials) => void;
   logout: () => void;
-  user: User | null;
+  user: User | VendorOwner | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;

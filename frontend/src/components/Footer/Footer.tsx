@@ -33,7 +33,7 @@ export function Footer({ className, ...rest }: FooterProps) {
   // const menu = data?.menu?.items || [];
 
   return (
-    <footer className="h-44 shadow-modal" {...rest}>
+    <footer className="w-full h-44 shadow-modal" {...rest}>
       {/* <Box className={styles["footer-inner"]}> */}
       <div className="container">
         <div className="flex mb-14 sm:mb-10">

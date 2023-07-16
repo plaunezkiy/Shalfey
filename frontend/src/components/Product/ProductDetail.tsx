@@ -33,14 +33,14 @@ const ProductDetail = async ({ vendor_slug, product_slug }: Props) => {
   const product: Variant = await getVariant(vendor_slug, product_slug);
   // const isAuthenticated = true;
   const tabStyle =
-    "w-full p-2 py-4 flex items-center justify-center font-medium data-[state=inactive]:bg-gray-100 hover:bg-white hover:border-gray-300 border-b-2 data-[state=active]:bg-white data-[state=active]:border-green-500 border-transparent duration-150";
+    "w-full p-2 py-4 flex items-center justify-center font-medium data-[state=inactive]:bg-gray-100 hover:bg-gray-300 hover:border-gray-300 border-b-2 data-[state=active]:bg-white data-[state=active]:border-green-500 border-transparent duration-150";
   const tabContent = "p-4";
 
   return (
     <>
       {/* <ProductPageSeo product={product} /> */}
       <main className="grid grid-cols-1 gap-[3rem] min-h-full overflow-auto md:overflow-hidden container pt-8 px-8 md:grid-cols-3">
-        <div className="relative col-span-1 bg-green-300 border rounded-lg overflow-hidden shadow">
+        <div className="relative col-span-1 bg-primary-white border rounded-lg overflow-hidden shadow">
           <Image
             // className=""
             // onClick={() => setExpandedImage(media)}
@@ -114,7 +114,7 @@ const ProductDetail = async ({ vendor_slug, product_slug }: Props) => {
             </div>
             <p>{product.description}</p>
             <div className="mt-4 flex ml-auto w-2/3 gap-4">
-              <button className="p-2 flex items-center gap-2 border border-black hover:bg-black hover:text-white shadow rounded-lg duration-300">
+              <button className="p-2 flex items-center gap-2 text-black border border-black hover:bg-black hover:text-white shadow rounded-lg duration-300">
                 <ShareIcon className="w-5" />
                 <p>Поделиться</p>
               </button>
@@ -129,7 +129,7 @@ const ProductDetail = async ({ vendor_slug, product_slug }: Props) => {
           className="col-span-3 border rounded shadow-lg flex flex-col"
           defaultValue="reviews"
         >
-          <Tabs.List className="w-full flex justify-around shadow-lg">
+          <Tabs.List className="w-full flex justify-around shadow-lg bg-primary-white">
             <Tabs.Trigger value="instructions" className={tabStyle}>
               <p>Инструкция</p>
             </Tabs.Trigger>

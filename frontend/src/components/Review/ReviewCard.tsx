@@ -7,7 +7,7 @@ import { RateReviewButton } from "./RateReviewButton";
 
 const ReviewCard = () => {
   return (
-    <div className="border border-gray-300 rounded-lg shadow w-42 p-3 hover:shadow-modal duration-150 cursor-pointer flex flex-col">
+    <div className="border border-gray-300 bg-primary-white rounded-lg shadow w-42 p-3 hover:shadow-modal duration-150 cursor-pointer flex flex-col">
       <div className="flex items-center gap-1">
         <p className="text-lg font-medium">Елена</p>
         <p className="text-sm text-slate-500 before:content-['('] after:content-[')']">

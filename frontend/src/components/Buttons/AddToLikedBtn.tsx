@@ -23,7 +23,7 @@ const AddToLikedBtn = ({ variant, children }: Props) => {
   return (
     <button
       onClick={() => dispatch(addToLiked(variant))}
-      className="flex items-center gap-1 p-1 px-2 border border-1 border-red-400 rounded-lg text-red-400 hover:text-white bg-white hover:bg-red-400 shadow  duration-300"
+      className="flex items-center gap-1 p-1 px-2 border border-1 border-primary-red rounded-lg text-primary-red hover:text-white bg-primary-white hover:bg-primary-red shadow duration-300"
     >
       {children}
       {liked ? (

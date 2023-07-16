@@ -9,7 +9,7 @@ export function BurgerButton(props: { menu: Menu }) {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
   useClickOutside(menuRef, () => setShowMenu(false));
-  const genericHamburgerLine = `h-[2.5px] w-6 my-[2px] rounded-full transition ease transform duration-300 bg-emerald-700 group-hover:bg-white`;
+  const genericHamburgerLine = `h-[2.5px] w-6 my-[2px] rounded-full transition ease transform duration-300 bg-primary-main group-hover:bg-primary-white`;
 
   useEffect(() => {
     // console.log(props.menu);
@@ -32,7 +32,7 @@ export function BurgerButton(props: { menu: Menu }) {
       </div> */}
       <button
         onClick={() => setShowMenu(!showMenu)}
-        className="flex items-center gap-1 px-2 text-emerald-700 border border-emerald-700 rounded group hover:bg-emerald-700 hover:text-white duration-300"
+        className="flex items-center gap-1 px-2 text-primary-main border border-primary-main rounded group hover:bg-primary-main hover:text-primary-white duration-300"
       >
         <div className="flex flex-col h-10 w-10 justify-center items-center">
           <div

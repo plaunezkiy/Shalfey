@@ -20,7 +20,7 @@ const LikedButton = () => {
     <Link href={`/liked/`} className="">
       {/* <NavIconButton icon="bag" />{" "} */}
       <div className="relative">
-        <HeartIcon className="w-12 text-emerald-700 p-2 border border-emerald-700 rounded hover:bg-emerald-700 hover:text-white duration-150 cursor-pointer" />
+        <HeartIcon className="w-12 text-primary-main p-2 border border-primary-main rounded hover:bg-primary-main hover:text-primary-white duration-150 cursor-pointer" />
         {!!likedCounter && (
           <span
             key={likedCounter}

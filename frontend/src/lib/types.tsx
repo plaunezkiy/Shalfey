@@ -30,6 +30,19 @@ export type Branch = {
   herbsets: Herbset[];
 };
 
+export type User = {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+  is_active: boolean;
+  role: string;
+};
+
+export type VendorOwner = User & {
+  shop: Vendor;
+};
+
 export type Vendor = {
   id: number;
   name: string;

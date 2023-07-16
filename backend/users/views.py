@@ -4,10 +4,11 @@ from rest_framework import viewsets, status, permissions, generics
 from rest_framework.decorators import action
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.request import Request
 from django.shortcuts import get_object_or_404, render
 from products.serializers import VariantSerializer
 from orders.serializers import OrderSerializer
-from .serializers import UserSerializer, VendorSerializer, RegistrationSerializer
+from .serializers import UserSerializer, VendorSerializer, RegistrationSerializer, VendorOwnerSerializer
 from .models import Vendor
 
 
@@ -18,9 +19,15 @@ class UserView(viewsets.GenericViewSet):
     def get_queryset(self):
         return None
 
-    def list(self, request):
+    def list(self, request: Request):
         user = request.user
-        data = UserSerializer(user).data
+        if user.role == "vendor":
+            data = VendorOwnerSerializer(user).data
+        elif user.role == "moderator":
+            data = []
+        else:
+            data = UserSerializer(user).data
+
         return Response({'user': data})
 
     @action(detail=False)

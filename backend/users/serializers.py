@@ -32,3 +32,12 @@ class VendorSerializer(serializers.ModelSerializer):
         model = Vendor
         # fields = '__all__'
         exclude = ('image',)
+
+
+class VendorOwnerSerializer(UserSerializer):
+    shop = VendorSerializer(source="vendors.first")
+
+    class Meta:
+        model = ShopUser
+        fields = ('id', 'email', 'first_name', 'last_name', 'email', 'is_active', 'role', 'shop')
+
